@@ -1,11 +1,13 @@
 import React from "react"
-import { Redirect } from "react-router-dom"
+import { useNavigate } from 'react-router-dom';
 
 const NotFound = (props) => {
     console.log("not found props: ", props)
 
+    const navigate = useNavigate();
+
     const redirectToHome = () => {
-        props.history.push("/")
+        navigate('/');
     }
 
     return (

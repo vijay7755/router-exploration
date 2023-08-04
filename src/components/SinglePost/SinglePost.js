@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
+import { useParams, Navigate } from 'react-router-dom';
 
 const SinglePost = (props) => {
-    const { id } = props.match.params
+    const { id } = useParams();
     console.log("single post props: ", props, id)
     const [postname, setPostname] = useState('')
 
@@ -26,7 +26,7 @@ const SinglePost = (props) => {
 
     return (
         <div>
-            {postname === "No Posts available" && <Redirect to="/about"/>}
+            {postname === "No Posts available" && <Navigate to="/about"/>}
             <h4>{postname}</h4>
         </div>
     )

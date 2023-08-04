@@ -1,5 +1,5 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+// import { withRouter } from 'react-router-dom'
 
 const Team = (props) => {
     console.log("team props: ",props)
@@ -10,4 +10,4 @@ const Team = (props) => {
     )
 }
 
-export default withRouter(Team)
+export default Team

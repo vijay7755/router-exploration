@@ -1,7 +1,13 @@
 import { Link, NavLink } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux";
 import "./header.css"
+import { signIn, logOut, authState } from "../../store/reducer/auth";
 
 export function Header(props) {
+
+    const authentication = useSelector(authState)
+    console.log("authentication: ", authentication)
+    const dispatch = useDispatch()
     return (
         <div className="flex bg-purple-900 text-purple-100 justify-between p-2">
             <div className="m-2 font-bold">
@@ -12,6 +18,15 @@ export function Header(props) {
                     state: { dashboard: true }
                 }}>React Router</Link>
             </div>
+            <div style={{color: "white"}}>
+                {authentication ? "signed in" : "signed out"}
+            </div>
+            <button onClick={() => {authentication ? dispatch(logOut()) : dispatch(signIn())}}
+                // style={{border: "1px solid white", padding: "4px", background: "red"}}
+                className="btn btn-primary"
+            >
+                auth button
+            </button>
             <div>
                 <ul className="flex font-medium">
                     <li className="m-2">

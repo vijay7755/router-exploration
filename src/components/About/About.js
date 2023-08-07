@@ -9,6 +9,8 @@ import {
   selectCount,
 } from "./../../store/reducer/counter";
 
+
+// preference
 function About(props) {
   console.log("about props: ", props);
   const count = useSelector(selectCount);
@@ -26,7 +28,7 @@ function About(props) {
           +
         </button>
         <br />
-        <span className={""}>{count}</span>
+        <span className={"badge bg-secondary"}>{count}</span>
         <br />
         <button
           className={"styles.button"}
